@@ -1,9 +1,10 @@
 from app.pdf.extractor import pdf_extractor
+from app.pdf.cleaner import TextCleaner
 
 extract= pdf_extractor()
+pages=extract.extract("/workspaces/bert-rag-document-qa/data/pdfs/The Last Lightkeeper.pdf")
 
-pages=extract.extract("data/pdfs/Card_ID List_EN.pdf")
+cleaner=TextCleaner.clean(pages[0]['text'])
 
-print()
+print(cleaner[:500])
 
-print(pages[0]["text"][:500])
