@@ -1,4 +1,5 @@
 from pathlib import Path
+from app.models.document import Page
 import fitz
 
 class pdf_extractor:
@@ -17,10 +18,12 @@ class pdf_extractor:
 
         for page_number,page in enumerate(document,start=1):
             text=page.get_text("text")
-
-            pages.append({"page":page_number,
-                          "text":text}
-                        )
+            pages.append(
+                Page(
+                    page_number=page_number,
+                    text=text
+                )
+            )
         document.close()
 
         return pages
