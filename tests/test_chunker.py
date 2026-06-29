@@ -4,7 +4,7 @@ from app.pdf.chunker import TextChunker
 
 extractor=pdf_extractor()
 
-pages=extractor.extract("data/pdfs/The Last Lightkeeper.pdf")
+pages=extractor.extract("/workspaces/bert-rag-document-qa/data/pdfs/deeplearningbook.pdf")
 
 cleaner= AdvancedTextCleaner()
 
